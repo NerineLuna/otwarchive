@@ -3,11 +3,11 @@
 <!-- change pseud -->
 <% pseuds = works.collect(&:pseuds).flatten.uniq %>
 <% unless pseuds.size <= 1 %>
-  <dt><%= form.label :pseuds_to_remove, ts("Current Co-Creators") %></dt>
+  <dt><%= form.label :pseuds_to_remove, ts("Current co-creators") %></dt>
   <dd class="pseuds listbox group">
     <h4 class="heading"><%= ts("Check to remove") %></h4>
     <%= checkbox_section(form, :pseuds_to_remove, pseuds) %>
   </dd>
 <% end %>      
-<dt><%= form.label :pseuds_to_add, ts("Add Co-Creators") %></dt>
+<dt><%= form.label :pseuds_to_add, ts("Add co-creators") %></dt>
 <dd><%= form.text_field :pseuds_to_add, autocomplete_options("pseud", :autocomplete_min_chars => 0, :value => (pseuds.size == 0 ? current_user.default_pseud.byline : "")) %></dd>
